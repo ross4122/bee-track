@@ -68,32 +68,32 @@ function secondsAgo(timestamp) {
 
 // Function to create custom rectangle icons with fleet numbers
 function createVehicleIcon(line, vehicleRef) {
-  const html = `
+    const html = `
     <div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">${line}</div>
   `;
 
-  let iconClass = "newicon";
+    let iconClass = "newicon";
 
-  if (rReqIconFleetNumbers.has(vehicleRef)) {
-    iconClass = "r-reqicon";
-  } else if (kReqIconFleetNumbers.has(vehicleRef)) {
-    iconClass = "k-reqicon";
-  } else if (bothReqIconFleetNumbers.has(vehicleRef)) {
-    iconClass = "bothreqicon";
-  }
+    if (rReqIconFleetNumbers.has(vehicleRef)) {
+        iconClass = "r-reqicon";
+    } else if (kReqIconFleetNumbers.has(vehicleRef)) {
+        iconClass = "k-reqicon";
+    } else if (bothReqIconFleetNumbers.has(vehicleRef)) {
+        iconClass = "bothreqicon";
+    }
 
-  return L.divIcon({
-    iconSize: [32, 13],
-    html: html,
-    className: iconClass,
-    popupAnchor: [0, -5],
-  });
+    return L.divIcon({
+        iconSize: [32, 13],
+        html: html,
+        className: iconClass,
+        popupAnchor: [0, -5],
+    });
 }
 
 /// Function to get fleet number (removes depot code if present)
 function getFleetNumber(fleetNumber) {
-  const parts = fleetNumber.split(" "); // Split on space
-  return parts[parts.length - 1]; // Return the last part (fleet number)
+    const parts = fleetNumber.split(" "); // Split on space
+    return parts[parts.length - 1]; // Return the last part (fleet number)
 }
 
 function getVehicleType(fleetNumber) {
@@ -158,14 +158,14 @@ async function fetchVehicleData() {
 
         // Cleanup non-required markers if filtering
         if (showRequirementsOnly) {
-            vehicleMarkers.forEach((marker, fleet_number) => {
+            vehicleMarkers.forEach((marker, vehicleRef) => {
                 if (
-                    !rReqIconFleetNumbers.has(fleet_number) &&
-                    !kReqIconFleetNumbers.has(fleet_number) &&
-                    !bothReqIconFleetNumbers.has(fleet_number)
+                    !rReqIconFleetNumbers.has(vehicleRef) &&
+                    !kReqIconFleetNumbers.has(vehicleRef) &&
+                    !bothReqIconFleetNumbers.has(vehicleRef)
                 ) {
                     marker.remove();
-                    vehicleMarkers.delete(fleet_number);
+                    vehicleMarkers.delete(vehicleRef);
                 }
             });
         }
@@ -185,11 +185,11 @@ async function fetchVehicleData() {
 
             let fleet_number = vehicleRef;
             let vehicleType = getVehicleType(fleet_number); // Default to Stagecoach logic
-             
+
             if (metrolineLookup.hasOwnProperty(vehicleRef)) {
-				fleet_number = metrolineLookup[vehicleRef].fleetNumber;
-				vehicleType = metrolineLookup[vehicleRef].type;
-			}
+                fleet_number = metrolineLookup[vehicleRef].fleetNumber;
+                vehicleType = metrolineLookup[vehicleRef].type;
+            }
             const recordedAt = new Date(recordedAtTimeStr);
             const now = new Date();
             const timeSinceLastFix = Math.floor((now - recordedAt) / 1000);
@@ -205,35 +205,35 @@ async function fetchVehicleData() {
                 )
             ) return;
 
-            let timeAgo = timeSinceLastFix < 60
-                ? `${timeSinceLastFix} seconds ago`
-                : timeSinceLastFix < 120
-                ? "1 minute ago"
-                : `${Math.floor(timeSinceLastFix / 60)} minutes ago`;
+            let timeAgo = timeSinceLastFix < 60 ?
+                `${timeSinceLastFix} seconds ago` :
+                timeSinceLastFix < 120 ?
+                "1 minute ago" :
+                `${Math.floor(timeSinceLastFix / 60)} minutes ago`;
 
-            let popupText = line && destination
-                ? `<b>${line}</b> to <b>${destination}</b>`
-                : line
-                ? `<b>${line}</b>`
-                : "Not in Service";
+            let popupText = line && destination ?
+                `<b>${line}</b> to <b>${destination}</b>` :
+                line ?
+                `<b>${line}</b>` :
+                "Not in Service";
 
-            if (vehicleMarkers.has(fleet_number)) {
-                vehicleMarkers.get(fleet_number).setLatLng([lat, lon]);
+            if (vehicleMarkers.has(vehicleRef)) {
+                vehicleMarkers.get(vehicleRef).setLatLng([lat, lon]);
             } else {
                 const marker = L.marker([lat, lon], {
                     icon: createVehicleIcon(line, vehicleRef),
                 }).addTo(map);
 
                 marker.bindPopup(`
-                    <b>${popupText}</b><br>
-					<b>${fleet_number}</b> – ${vehicleType}<br>
-                    <small>${timeAgo}</small>
-                `);
+    <b>${popupText}</b><br>
+    <b>${fleet_number}</b> – ${vehicleType}<br>
+    <small>${timeAgo}</small>
+  `);
 
-                vehicleMarkers.set(fleet_number, marker);
+                vehicleMarkers.set(vehicleRef, marker);
 
                 marker.on("popupopen", () => {
-                    lastOpenedFleetNumber = fleet_number;
+                    lastOpenedFleetNumber = vehicleRef;
                     popupWasOpen = true;
                 });
 
@@ -257,8 +257,8 @@ async function fetchVehicleData() {
 }
 
 document
-  .getElementById("requirementsCheckbox")
-  .addEventListener("change", fetchVehicleData);
+    .getElementById("requirementsCheckbox")
+    .addEventListener("change", fetchVehicleData);
 
 // Initial fetch of vehicle locations
 fetchVehicleData();
@@ -270,6 +270,6 @@ let fetchTimeout;
 
 // Fetch data after the user stops moving the map for 1 second
 map.on("moveend", () => {
-  clearTimeout(fetchTimeout);
-  fetchTimeout = setTimeout(fetchVehicleData, 1000);
+    clearTimeout(fetchTimeout);
+    fetchTimeout = setTimeout(fetchVehicleData, 1000);
 });
