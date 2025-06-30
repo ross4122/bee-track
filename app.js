@@ -174,7 +174,8 @@ async function fetchVehicleData() {
 
         allVehicleActivities.forEach((activity) => {
             const line = activity.querySelector("PublishedLineName")?.textContent || "";
-            const vehicleRef = activity.querySelector("VehicleRef")?.textContent || "";
+            let vehicleRef = activity.querySelector("VehicleRef")?.textContent || "";
+			vehicleRef = vehicleRef.replace(/_/g, ""); // Remove underscores
             const recordedAtTimeStr = activity.querySelector("RecordedAtTime")?.textContent || "";
             const destination = (activity.querySelector("DestinationName")?.textContent || "").replace(/_/g, " ");
 
