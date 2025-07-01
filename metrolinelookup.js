@@ -318,7 +318,7 @@ const metrolineLookup = {
 	"BU25YXD": { fleetNumber: "VMD468", type: "BZL DD" },
 	"BU25YXE": { fleetNumber: "VMD469", type: "BZL DD" },
 	"BU25YXF": { fleetNumber: "VMD470", type: "BZL DD" },
-	"BU25YXT": { fleetNumber: "VMD671", type: "BZL DD" }	
+	"BU25YXT": { fleetNumber: "VMD671", type: "BZL DD" },
 	"BK10MEV": { fleetNumber: "VW1823", type: "Volvo B9TL G2" },
 	"BK10MFA": { fleetNumber: "VW1824", type: "Volvo B9TL G2" },
 	"BK10MFE": { fleetNumber: "VW1825", type: "Volvo B9TL G2" },
