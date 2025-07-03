@@ -98,6 +98,25 @@ function getFleetNumber(fleetNumber) {
 
 function getVehicleType(fleetNumber) {
     const num = parseInt(fleetNumber, 10);
+	if (num >= 2001 && num <= 2099) return "BYD E400EV";
+	if (num >= 2101 && num <= 2199) return "StreetDeck EV";
+	if (num == 2201) return "StreetDeck NP EV";
+	if (num >= 3021 && num <= 3050) return "Volvo B5LH G3";
+	if (num >= 3051 && num <= 3070) return "Volvo B5LH Evoseti";
+	if (num >= 3081 && num <= 3100) return "Volvo B5LH G2";
+	if (num >= 3101 && num <= 3200) return "ADL E400";
+	if (num >= 3270 && num <= 3300) return "Volvo B9TL G2";
+	if (num >= 3301 && num <= 3310) return "Volvo B5TL G3";
+	if (num >= 3401 && num <= 3500) return "Streetdeck";
+	if (num >= 4001 && num <= 4050) return "ADL E200";
+	if (num >= 4101 && num <= 4200) return "ADL E200MMC";
+	if (num == 4201) return "Optare Solo";
+	if (num >= 5051 && num <= 5060) return "Solo SR";
+	if (num == 5101) return "ADL E200";
+	if (num >= 5201 && num <= 5250) return "ADL E200MMC";
+	if (num >= 5301 && num <= 5350) return "Mellor Strata";
+	if (num >= 6151 && num <= 6200) return "Volvo B7RLE E2";
+	if (num >= 6201 && num <= 6300) return "Mercedes Citaro";
     if (num >= 10001 && num <= 10198) return "ADL E400";
     if (num >= 10301 && num <= 11880) return "ADL E400MMC";
     if (num >= 11881 && num <= 11930) return "ADL E400City";
@@ -131,6 +150,7 @@ async function fetchVehicleData() {
     try {
         const feedUrls = [
             "https://data.bus-data.dft.gov.uk/api/v1/datafeed/14336/?api_key=fce46df3b5be69bb9ffc0b1d857697af13f95a92",
+//			"https://data.bus-data.dft.gov.uk/api/v1/datafeed/18581/?api_key=fce46df3b5be69bb9ffc0b1d857697af13f95a92",
             "https://data.bus-data.dft.gov.uk/api/v1/datafeed/16387/?api_key=fce46df3b5be69bb9ffc0b1d857697af13f95a92"
         ];
 
