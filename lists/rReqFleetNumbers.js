@@ -1,5 +1,4 @@
 const rReqIconFleetNumbers = new Set([
-    	"SK74BKY",
 	"YN61BFZ",
 	"YN62BEY",
 	"SL63GCU",
@@ -14,7 +13,6 @@ const rReqIconFleetNumbers = new Set([
 	"19481",
 	"21418",
 	"27947",
-	"80109",
 	"3054",
 	"3066",
 	"3280",
