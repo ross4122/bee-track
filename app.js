@@ -150,7 +150,7 @@ async function fetchVehicleData() {
     try {
         const feedUrls = [
             "https://data.bus-data.dft.gov.uk/api/v1/datafeed/14336/?api_key=fce46df3b5be69bb9ffc0b1d857697af13f95a92",	// Stagecoach
-			"https://data.bus-data.dft.gov.uk/api/v1/datafeed/18581/?api_key=fce46df3b5be69bb9ffc0b1d857697af13f95a92",	// Go North West
+			// "https://data.bus-data.dft.gov.uk/api/v1/datafeed/18581/?api_key=fce46df3b5be69bb9ffc0b1d857697af13f95a92",	// Go North West
             "https://data.bus-data.dft.gov.uk/api/v1/datafeed/16387/?api_key=fce46df3b5be69bb9ffc0b1d857697af13f95a92"	// Metroline
         ];
 
