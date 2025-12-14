@@ -154,8 +154,10 @@ async function fetchVehicleData() {
             "https://data.bus-data.dft.gov.uk/api/v1/datafeed/16387/?api_key=fce46df3b5be69bb9ffc0b1d857697af13f95a92"	// Metroline
         ];
 
-        // Use CORS proxy for both
-        const proxiedUrls = feedUrls.map(url => `https://corsproxy.io/?${encodeURIComponent(url)}`);
+        // Use your Cloudflare Worker as the CORS proxy
+		const proxiedUrls = feedUrls.map(
+			url => `https://global.ross4122-ff0.workers.dev/?url=${encodeURIComponent(url)}`
+		);
 
         // Fetch both APIs in parallel
         const responses = await Promise.all(proxiedUrls.map(url => fetch(url)));
