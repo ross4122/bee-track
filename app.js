@@ -148,16 +148,11 @@ let popupWasOpen = false; // Track if a popup was open before refresh
 // Function to fetch and display vehicle locations
 async function fetchVehicleData() {
     try {
-        const feedUrls = [
-            "https://data.bus-data.dft.gov.uk/api/v1/datafeed/14336/?api_key=fce46df3b5be69bb9ffc0b1d857697af13f95a92",	// Stagecoach
-			"https://data.bus-data.dft.gov.uk/api/v1/datafeed/18880/?api_key=fce46df3b5be69bb9ffc0b1d857697af13f95a92",	// Go North West
-            "https://data.bus-data.dft.gov.uk/api/v1/datafeed/16387/?api_key=fce46df3b5be69bb9ffc0b1d857697af13f95a92"	// Metroline
-        ];
-
-        // Use your Cloudflare Worker as the CORS proxy
-		const proxiedUrls = feedUrls.map(
-			url => `https://global.ross4122-ff0.workers.dev/?url=${encodeURIComponent(url)}`
-		);
+		const proxiedUrls = [
+		"https://global.ross4122-ff0.workers.dev/feed/14336",
+		"https://global.ross4122-ff0.workers.dev/feed/18880",
+		"https://global.ross4122-ff0.workers.dev/feed/16387"
+		];
 
         // Fetch both APIs in parallel
         const responses = await Promise.all(proxiedUrls.map(url => fetch(url)));
