@@ -3,5 +3,6 @@ const kReqIconFleetNumbers = new Set([
 	"MX58DWK",
 	"MX58DXW",
 	"MX58EBD",
-	"MJ74JKY"
+	"MJ74JKY",
+	"44024"
 ]);

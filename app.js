@@ -137,7 +137,7 @@ function getVehicleType(fleetNumber) {
     if (num >= 76101 && num <= 76104) return "BZL SD";
     if (num >= 80087 && num <= 80121) return "ADL E400EV";
     if (num >= 84201 && num <= 84250) return "BYD E400EV";
-    if (num >= 86031 && num <= 86069) return "BZL DD";
+    if (num >= 86031 && num <= 86075) return "BZL DD";
     return "Unknown";
 }
 
@@ -150,7 +150,7 @@ async function fetchVehicleData() {
     try {
         const feedUrls = [
             "https://data.bus-data.dft.gov.uk/api/v1/datafeed/14336/?api_key=fce46df3b5be69bb9ffc0b1d857697af13f95a92",	// Stagecoach
-			// "https://data.bus-data.dft.gov.uk/api/v1/datafeed/18581/?api_key=fce46df3b5be69bb9ffc0b1d857697af13f95a92",	// Go North West
+			"https://data.bus-data.dft.gov.uk/api/v1/datafeed/18880/?api_key=fce46df3b5be69bb9ffc0b1d857697af13f95a92",	// Go North West
             "https://data.bus-data.dft.gov.uk/api/v1/datafeed/16387/?api_key=fce46df3b5be69bb9ffc0b1d857697af13f95a92"	// Metroline
         ];
 

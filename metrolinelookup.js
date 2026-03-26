@@ -362,6 +362,8 @@ const metrolineLookup = {
 	"MX58DZJ": { fleetNumber: "VW606", type: "Volvo B9TL Gemini" },
 	"MX58DZL": { fleetNumber: "VW607", type: "Volvo B9TL Gemini" },
 	"MX58DZN": { fleetNumber: "VW608", type: "Volvo B9TL Gemini" },
+	"MX58DZR": { fleetNumber: "VW611", type: "Volvo B9TL Gemini" },
+	"MX58EBD": { fleetNumber: "VW613", type: "Volvo B9TL Gemini" },		
 	"MX58EBK": { fleetNumber: "VW659", type: "Volvo B9TL Gemini" },
 	"MX58EBG": { fleetNumber: "VW661", type: "Volvo B9TL Gemini" },
 	"MX58EBF": { fleetNumber: "VW662", type: "Volvo B9TL Gemini" },
