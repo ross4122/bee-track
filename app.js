@@ -148,17 +148,17 @@ let isFetchingVehicles = false;
 
 		const feeds = [
 			{
-				url: "https://global.ross4122-ff0.workers.dev/feed/16387",
+				url: "https://global.ross4122-ff0.workers.dev/operator/BNML",
 				operator: "metroline",
 				label: "Metroline"
 			},
 			{
-				url: "https://global.ross4122-ff0.workers.dev/feed/14336",
+				url: "https://global.ross4122-ff0.workers.dev/operator/BNSM",
 				operator: "stagecoach",
 				label: "Stagecoach"
 			},
 			{
-				url: "https://global.ross4122-ff0.workers.dev/feed/18880",
+				url: "https://global.ross4122-ff0.workers.dev/operator/BNGN",
 				operator: "gnw",
 				label: "Go North West"
 			}
