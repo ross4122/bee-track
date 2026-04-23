@@ -158,6 +158,11 @@ let isFetchingVehicles = false;
 				label: "Stagecoach"
 			},
 			{
+				url: "https://global.ross4122-ff0.workers.dev/operator/SCMY",
+				operator: "stagecoach",
+				label: "Stagecoach"
+			},
+			{
 				url: "https://global.ross4122-ff0.workers.dev/operator/BNGN",
 				operator: "gnw",
 				label: "Go North West"
@@ -217,7 +222,9 @@ async function fetchVehicleData() {
 		allVehicleActivities.forEach(({ activity, operatorCode, operatorLabel }) => {
 			const line = activity.querySelector("PublishedLineName")?.textContent || "";
 			let vehicleRef = activity.querySelector("VehicleRef")?.textContent || "";
-			vehicleRef = vehicleRef.replace(/_/g, "");
+			vehicleRef = vehicleRef
+				.replace(/_/g, "")
+				.replace(/^SCMY-/, "");
 
 			const recordedAtTimeStr =
 				activity.querySelector("RecordedAtTime")?.textContent || "";
