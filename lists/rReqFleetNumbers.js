@@ -35,7 +35,7 @@ const rReqIconFleetNumbers = new Set([
 	"3500",
 	"5208",
 	"6177",
-	"6178",
+	"9013",
 	"9101",
 	"9107"
 ]);
