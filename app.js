@@ -120,7 +120,7 @@ function getVehicleType(fleetNumber) {
 	if (num >= 47701 && num <= 48194) return "Optare Solo SR";
 	if (num >= 66071 && num <= 66082) return "BZL Midi";
 	if (num >= 76101 && num <= 76104) return "BZL SD";
-	if (num >= 80087 && num <= 80121) return "ADL E400EV";
+	if (num >= 80087 && num <= 80699) return "ADL E400EV";
 	if (num >= 82401 && num <= 82451) return "StreetDeck EV";
 	if (num >= 84201 && num <= 84250) return "BYD E400EV";
 	if (num >= 86031 && num <= 86075) return "BZL DD";
@@ -168,6 +168,11 @@ let isFetchingVehicles = false;
 				operator: "stagecoach",
 				label: "Stagecoach"
 			},
+			{
+				url: "https://global.ross4122-ff0.workers.dev/operator/SYRK",
+				operator: "stagecoach",
+				label: "Stagecoach"
+			},			
 			{
 				url: "https://global.ross4122-ff0.workers.dev/operator/BNGN",
 				operator: "gnw",
@@ -230,7 +235,8 @@ async function fetchVehicleData() {
 			let vehicleRef = activity.querySelector("VehicleRef")?.textContent || "";
 			vehicleRef = vehicleRef
 				.replace(/_/g, "")
-				.replace(/^SCMY-/, "");
+				.replace(/^SCMY-/, "")
+				.replace(/^SYRK-/, "");
 
 			const recordedAtTimeStr =
 				activity.querySelector("RecordedAtTime")?.textContent || "";

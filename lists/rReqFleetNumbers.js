@@ -37,5 +37,9 @@ const rReqIconFleetNumbers = new Set([
 	"6177",
 	"9013",
 	"9101",
-	"9107"
+	"9107",
+// YORKSHIRE?
+	"54305",
+	"54306",
+	"54307"
 ]);
