@@ -4,7 +4,6 @@ const rReqIconFleetNumbers = new Set([
 	"BD74WKK",
 	"MX58DWJ",
 	"MF74NPE",
-	"MF74NRU",
 	"11813",
 	"11831",
 	"13187",
