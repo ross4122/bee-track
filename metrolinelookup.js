@@ -322,7 +322,7 @@ const metrolineLookup = {
 	"BU25YUL": { fleetNumber: "VMS361", type: "BZL SD" },
 	"BD74WJE": { fleetNumber: "VMS362", type: "BZL SD" },
 	"BU25YUN": { fleetNumber: "VMS363", type: "BZL SD" },
-	"BU25YOU": { fleetNumber: "VMS364", type: "BZL SD" },
+	"BU25YUO": { fleetNumber: "VMS364", type: "BZL SD" },
 	"BU25YUR": { fleetNumber: "VMS365", type: "BZL SD" },
 	"BU25YUT": { fleetNumber: "VMS366", type: "BZL SD" },
 	"BU75WUJ": { fleetNumber: "VMS664", type: "BZL SD" },
